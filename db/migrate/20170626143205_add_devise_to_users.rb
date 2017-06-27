@@ -6,6 +6,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.0]
       t.string :encrypted_password, null: false, default: ""
       
       ## Custom
+      t.string :name
       
       ## Recoverable
       t.string   :reset_password_token
