@@ -4,13 +4,8 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-<<<<<<< HEAD
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-=======
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
->>>>>>> rubygem
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

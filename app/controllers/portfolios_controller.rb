@@ -1,10 +1,6 @@
 class PortfoliosController < ApplicationController
-<<<<<<< HEAD
-  def index
-    @portfolio_items = Portfolio.all 
-  end
-=======
   layout 'portfolio'
+    access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :update, :edit,]}, site_admin: :all
   def index
     @portfolio_items = Portfolio.all
   end
@@ -19,7 +15,6 @@ class PortfoliosController < ApplicationController
 
   def create
     @portfolio_item = Portfolio.new(portfolio_params)
->>>>>>> rubygem
 
   def new
     @portfolio_item = Portfolio.new
@@ -35,15 +30,6 @@ class PortfoliosController < ApplicationController
       end
     end
   end
-<<<<<<< HEAD
-  def edit
-   @portfolio_item = Portfolio.find(params(:id))
-  end
-  def update
-    respond_to do |format|
-      if @portfolio_item.update(portfolio_params)
-        format.html { redirect_to portfolios_path, notice: 'Your portfolio item was successfully updated.' }
-=======
 
   def edit
     @portfolio_item = Portfolio.find(params[:id])
@@ -55,31 +41,11 @@ class PortfoliosController < ApplicationController
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
         format.html { redirect_to portfolios_path, notice: 'The record successfully updated.' }
->>>>>>> rubygem
       else
         format.html { render :edit }
       end
     end
   end
-<<<<<<< HEAD
-  
-  def show
-    @portfolio_item = Portfolio.find(params[:id])
-  end
-  def destroy
-    @portfolio_item = Portfolio.find(params[:id])
-    @blog.destroy
-    respond_to do |format|
-    format.html { redirect_to portfolios_url, notice: 'Record was removed.' }
-    end
-  end
-  
-  private
-  
-  def portfolio_params
-    params.require(:portfolio).permit(:title, :subtitle, :body)
-  end
-=======
 
   def show
     @portfolio_item = Portfolio.find(params[:id])
@@ -107,5 +73,4 @@ class PortfoliosController < ApplicationController
                                      )
   end
 
->>>>>>> rubygem
 end
