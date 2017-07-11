@@ -1,7 +1,25 @@
 class PortfoliosController < ApplicationController
+<<<<<<< HEAD
   def index
     @portfolio_items = Portfolio.all 
   end
+=======
+  layout 'portfolio'
+  def index
+    @portfolio_items = Portfolio.all
+  end
+
+  def angular
+    @angular_portfolio_items = Portfolio.angular
+  end
+
+  def new
+    @portfolio_item = Portfolio.new
+  end
+
+  def create
+    @portfolio_item = Portfolio.new(portfolio_params)
+>>>>>>> rubygem
 
   def new
     @portfolio_item = Portfolio.new
@@ -11,12 +29,13 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.new(portfolio_params)
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to portfolios_path, notice: 'You portfolio item is now live.' }
+        format.html { redirect_to portfolios_path, notice: 'Your portfolio item is now live.' }
       else
         format.html { render :new }
       end
     end
   end
+<<<<<<< HEAD
   def edit
    @portfolio_item = Portfolio.find(params(:id))
   end
@@ -24,11 +43,25 @@ class PortfoliosController < ApplicationController
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
         format.html { redirect_to portfolios_path, notice: 'Your portfolio item was successfully updated.' }
+=======
+
+  def edit
+    @portfolio_item = Portfolio.find(params[:id])
+  end
+
+  def update
+    @portfolio_item = Portfolio.find(params[:id])
+
+    respond_to do |format|
+      if @portfolio_item.update(portfolio_params)
+        format.html { redirect_to portfolios_path, notice: 'The record successfully updated.' }
+>>>>>>> rubygem
       else
         format.html { render :edit }
       end
     end
   end
+<<<<<<< HEAD
   
   def show
     @portfolio_item = Portfolio.find(params[:id])
@@ -46,4 +79,33 @@ class PortfoliosController < ApplicationController
   def portfolio_params
     params.require(:portfolio).permit(:title, :subtitle, :body)
   end
+=======
+
+  def show
+    @portfolio_item = Portfolio.find(params[:id])
+  end
+
+  def destroy
+    # Perform the lookup
+    @portfolio_item = Portfolio.find(params[:id])
+
+    # Destroy/delete the record
+    @portfolio_item.destroy
+
+    # Redirect
+    respond_to do |format|
+      format.html { redirect_to portfolios_url, notice: 'Record was removed.' }
+    end
+  end
+
+  private
+
+  def portfolio_params
+    params.require(:portfolio).permit(:title,
+                                      :subtitle,
+                                      :body,
+                                     )
+  end
+
+>>>>>>> rubygem
 end

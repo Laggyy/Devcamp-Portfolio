@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DevcampPortfolio</title>
+    <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
     
+<<<<<<< HEAD
+=======
+    <meta name="keywords" content="<%= @seo_keywords %>" />
+
+>>>>>>> rubygem
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+<<<<<<< HEAD
      <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p>
 
@@ -24,5 +30,18 @@
     <% if session[:source] %>
       <p>Thanks for visiting me from<%= session[:source] %></p>
     <% end %>
+=======
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= render "shared/nav", location: 'top' %>
+    
+     <%= login_helper %>
+     
+    <%= yield %>
+    
+    <%= @copyright_generator %>
+    
+    <%= source_helper("application") %>
+>>>>>>> rubygem
   </body>
 </html>
