@@ -12,9 +12,6 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.new
   end
 
-  def create
-    @portfolio_item = Portfolio.new(portfolio_params)
-
   def new
     @portfolio_item = Portfolio.new
   end
@@ -72,4 +69,3 @@ class PortfoliosController < ApplicationController
                                      )
   end
   end
-end
